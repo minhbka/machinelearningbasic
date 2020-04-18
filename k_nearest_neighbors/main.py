@@ -1,13 +1,14 @@
 from __future__ import print_function
 import numpy as np
 from sklearn import neighbors, datasets
-from sklearn.model_selection import  train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 
 def myweight(distance):
     sigma2 = 0.4
-    return np.exp(-distance**2/sigma2)
+    return np.exp(-distance ** 2 / sigma2)
+
 
 np.random.seed(7)
 iris = datasets.load_iris()
@@ -30,6 +31,4 @@ y_pred = model.predict(X_test)
 # print("Accuracy of 1NN: %.2f %%" %(100*accuracy_score(y_test, y_pred)))
 # print("Accuracy of 7NN: %.2f %%" %(100*accuracy_score(y_test, y_pred)))
 # print("Accuracy of 7NN (1/distance weights): %.2f %%" %(100*accuracy_score(y_test, y_pred)))
-print("Accuracy of 7NN (custom weights): %.2f %%" %(100*accuracy_score(y_test, y_pred)))
-
-
+print("Accuracy of 7NN (custom weights): %.2f %%" % (100 * accuracy_score(y_test, y_pred)))
